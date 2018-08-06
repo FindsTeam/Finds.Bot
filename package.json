@@ -1,0 +1,16 @@
+{
+  "name": "freebee-telegram-bot",
+  "version": "1.0.0",
+  "description": "A Telegram bot that helps people to find free opportunities of a specific type around their place",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "George Puisha (Freebee Team)",
+  "license": "MIT",
+  "dependencies": {
+    "node-telegram-bot-api": "0.30.0",
+    "nodemon": "1.18.3"
+  }
+}
