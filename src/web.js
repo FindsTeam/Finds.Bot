@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const app = express();
 app.use(bodyParser.json());
 
-app.get("/", function (req, res) {
+app.get("/", (req, res) => {
   res.json();
 });
 
