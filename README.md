@@ -1,4 +1,13 @@
 <p align="center"> 
+  <a href="https://codeclimate.com/github/FreebeeTeam/freebee-telegram-bot/maintainability">
+    <img src="https://api.codeclimate.com/v1/badges/d053b7eee6887a11046d/maintainability" />
+  </a>
+  <a class="badge-align" href="https://www.codacy.com/app/GitStearis/freebee-telegram-bot?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=FreebeeTeam/freebee-telegram-bot&amp;utm_campaign=Badge_Grade">
+    <img src="https://api.codacy.com/project/badge/Grade/bfc11c270b71494181491d35fba0306a"/>
+  </a>
+</p>
+
+<p align="center"> 
   <img src='https://drive.google.com/uc?id=1albVAA6GrHQaG0EvN3a1WFCs9irSv5Lk' alt='Freebee logo' width="200" />
 </p>
 
