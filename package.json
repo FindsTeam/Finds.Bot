@@ -10,7 +10,9 @@
   "author": "George Puisha (Freebee Team)",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "1.18.3",
     "dotenv": "6.0.0",
+    "express": "4.16.3",
     "mongoose": "5.2.7",
     "node-telegram-bot-api": "0.30.0",
     "nodemon": "1.18.3"

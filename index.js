@@ -10,6 +10,7 @@ database.connect();
 
 const token = process.env.TELEGRAM_TOKEN;
 const bot = new TelegramBot(token, { polling: true });
+require("./src/web")(bot);
 
 bot.onText(/\/start/, (msg) => {
   const answerOptions = {
