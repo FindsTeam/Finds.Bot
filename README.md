@@ -42,6 +42,7 @@ To launch Freebee API you should create `.env` file in a root directory. File sh
 
 ```
 PORT = 3000
+NODE_ENV = 
 TELEGRAM_TOKEN = 
 MONGODB_CONNECTION = 
 ```
@@ -71,7 +72,9 @@ $ git push heroku master
 Add `env` variables via Heroku CLI:
 
 ```
+$ heroku config:set NODE_ENV=production
 $ heroku config:set TELEGRAM_TOKEN=blahblahblah
+$ heroku config:set MONGODB_CONNECTION=whopwhopwhop
 ```
 
 Ensure the app is running.
