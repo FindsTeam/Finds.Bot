@@ -2,7 +2,7 @@ const package = require("../../package.json");
 
 const TelegramBot = require("node-telegram-bot-api");
 
-const markerControllers = require("../controllers/markers");
+const wifiControllers = require("../controllers/wifi");
 
 const token = process.env.TELEGRAM_TOKEN;
 let bot;
@@ -38,15 +38,15 @@ bot.onText(/\/help/, (msg) => {
 });
 
 bot.onText(/\/info/, (msg) => {
-  bot.sendMessage(msg.chat.id, "🔑 *Информация*\n\n*Freebee* — приложение, предназначенное для поиска бесплатных возможностей в городе. Бот *Freebee Navigator* является частью растущей экосистемы Freebee.\n\n🔗 *Полезные ссылки*\n\n🌍 [Сайт](https://freebee.by/)\n🗺 [Карта халявы](https://freebee.by/map.html)", markdownOptions);  
+  bot.sendMessage(msg.chat.id, "🔑 *Информация*\n\n*Freebee* — приложение, предназначенное для поиска бесплатных возможностей в городе. Бот *Freebee Navigator* является частью растущей экосистемы *Freebee*.\n\n🔗 *Полезные ссылки*\n\n🌍 [Сайт](https://freebee.by/)\n🗺 [Карта халявы](https://freebee.by/map.html)", markdownOptions);  
 });
 
 bot.onText(/\/about/, (msg) => {
-  bot.sendMessage(msg.chat.id, `🤖 *Freebee Navigator* — бот для Telegram, он позволяет с легкостью отыскать ближайшую халяву определенного типа из базы данных приложения Freebee.\n\n⏳ *Версия:* ${package.version}\n\n🔗 *Репозиторий бота:* [freebee-telegram-bot](https://github.com/FreebeeTeam/freebee-telegram-bot)`, markdownOptions);  
+  bot.sendMessage(msg.chat.id, `🤖 *О боте*\n\n*Freebee Navigator* — бот для Telegram, он позволяет с легкостью отыскать ближайшую халяву определенного типа из базы данных приложения *Freebee*.\n\n🚀 Для начала работы введите /start. Обратите внимание — бот использует ваше текущее местоположение, но мы не храним его и никак больше не используем. Нам это банально не интересно!\n\n⏳ *Версия:* ${package.version}\n\n🔗 *Репозиторий бота:* [freebee-telegram-bot](https://github.com/FreebeeTeam/freebee-telegram-bot)`, markdownOptions);  
 });
 
 bot.on("location", async (msg) => {
-  const result = await markerControllers.getNearestMarker(msg);
+  const result = await wifiControllers.getNearestWifi(msg);
   if (result) {
     bot.sendMessage(msg.chat.id, `*${result.title}*\n\n🎯 Адрес: ${result.address}\n\nℹ️ ${result.description}`, markdownOptions).then(() => {
       bot.sendLocation(msg.chat.id, result.location[0], result.location[1]).then(() => {
@@ -54,7 +54,7 @@ bot.on("location", async (msg) => {
       });
     });
   } else {
-    bot.sendMessage(msg.chat.id, "*Oops!*\n\nЯ ничего не нашел, хотя очень старался. Возможно, что рядом с вами просто нет халявы (хотя мне кажется, что просто кто-то деплоит на сервер или настраивает базу данных).\n\nКак бы то ни было, попробуйте повторить поиск позже или свяжитесь с разработчиками.\n\n*E-mail:* development@mail.freebee.by", markerControllers);
+    bot.sendMessage(msg.chat.id, "*Oops!*\n\nЯ ничего не нашел, хотя очень старался. Возможно, что рядом с вами просто нет халявы (хотя мне кажется, что просто кто-то деплоит на сервер или настраивает базу данных).\n\nКак бы то ни было, попробуйте повторить поиск позже или свяжитесь с разработчиками.\n\n*E-mail:* development@mail.freebee.by", markdownOptions);
   }
 });
 

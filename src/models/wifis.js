@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 mongoose.Promise = Promise;
 
-const marker = new mongoose.Schema({
+const wifi = new mongoose.Schema({
     title: {
         type: String,
         required: true,
@@ -10,35 +10,37 @@ const marker = new mongoose.Schema({
             unique: false
         }
     },
-    address: {
-      type: String,
-      required: false
-    },
     location: {
         type: [Number],
+        required: true,
         index: {
             type: "2dsphere",
             sparse: true
         }
     },
-    type: {
-        type: [String],
-        required: false
-    },
     description: {
         type: String,
         required: false
     },
-    password: {
-        type: String,
-        required: false
+    creationDate: {
+        type: Date,
+        default: Date.now,
+        required: true
     },
     author: {
         type: String,
-        required: true
+        required: false
+    },
+    address: {
+        type: String,
+        required: true,
+    },
+    password: {
+        type: String,
+        required: false,
     }
 });
 
-marker.index({ loc: "2dsphere" });
+wifi.index({ loc: "2dsphere" });
 
-module.exports = mongoose.model("markers", marker);
+module.exports = mongoose.model("wifis", wifi);
