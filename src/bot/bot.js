@@ -32,7 +32,7 @@ bot.onText(/\/about/, (msg) => {
   bot.sendMessage(msg.chat.id, `🤖 *О боте*\n\n*Freebee Navigator* — бот для Telegram, он позволяет с легкостью отыскать ближайшую халяву определенного типа из базы данных приложения *Freebee*.\n\n🚀 Для начала работы введите /start. Обратите внимание — бот использует ваше текущее местоположение, но мы не храним его и никак больше не используем. Нам это банально не интересно!\n\n⏳ *Версия:* ${package.version}\n\n🔗 *Репозиторий бота:* [freebee-telegram-bot](https://github.com/FreebeeTeam/freebee-telegram-bot)`, keyboards.markdownOptions);  
 });
 
-bot.on("location", async (msg) => { 
+bot.on("location", async (msg) => {
   const result = await markersController.getNearestMarker(msg);
   if (result) {
     bot.sendMessage(msg.chat.id, `*${result.title}*\n\n🎯 Адрес: ${result.address}\n\nℹ️ ${result.description ? result.description : "Информация о данной точке отсутствует"}`, keyboards.markdownOptions).then(() => {
@@ -45,11 +45,11 @@ bot.on("location", async (msg) => {
   }
 });
 
-bot.onText(/Wi-Fi/, msg => {
+bot.onText(/Wi-Fi/, (msg) => {
   bot.sendMessage(msg.chat.id, msg.text + "?", keyboards.requestLocation);
 });
 
-bot.onText(/Туалеты/, msg => {
+bot.onText(/Туалеты/, (msg) => {
   bot.sendMessage(msg.chat.id, msg.text + "?", keyboards.requestLocation);
 });
 

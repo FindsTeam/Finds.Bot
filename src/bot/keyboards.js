@@ -12,7 +12,7 @@ module.exports.choiseOptions = {
     ],
     resize_keyboard: true,
     one_time_keyboard: true,
-  }),
+  })
 };
 
 module.exports.requestLocation = {
@@ -23,5 +23,5 @@ module.exports.requestLocation = {
     ],
     resize_keyboard: true,
     one_time_keyboard: true,
-  }),
+  })
 };
