@@ -1,3 +1,4 @@
-export const Types = {
-  wifi: "Wi-Fi"
+module.exports = {
+  wifi: "Wi-Fi",
+  toilets: "Туалеты"
 };
