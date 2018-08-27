@@ -1,4 +1,4 @@
 module.exports = {
-  wifi: "Wi-Fi",
-  toilets: "Туалеты"
+  wifi: "📡 Wi-Fi",
+  toilets: "🚽 Туалеты"
 };

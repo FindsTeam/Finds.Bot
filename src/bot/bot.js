@@ -32,25 +32,29 @@ bot.onText(/\/about/, (msg) => {
   bot.sendMessage(msg.chat.id, `🤖 *О боте*\n\n*Freebee Navigator* — бот для Telegram, он позволяет с легкостью отыскать ближайшую халяву определенного типа из базы данных приложения *Freebee*.\n\n🚀 Для начала работы введите /start. Обратите внимание — бот использует ваше текущее местоположение, но мы не храним его и никак больше не используем. Нам это банально не интересно!\n\n⏳ *Версия:* ${package.version}\n\n🔗 *Репозиторий бота:* [freebee-telegram-bot](https://github.com/FreebeeTeam/freebee-telegram-bot)`, keyboards.markdownOptions);  
 });
 
-bot.on("location", async (msg) => {
-  const result = await markersController.getNearestMarker(msg);
+const sendFreebee = async (msg, location) => {
+  if (!msg) {
+    return ;
+  }
+  const result = await markersController.getNearestMarker(msg.data, location);
   if (result) {
-    bot.sendMessage(msg.chat.id, `*${result.title}*\n\n🎯 Адрес: ${result.address}\n\nℹ️ ${result.description ? result.description : "Информация о данной точке отсутствует"}`, keyboards.markdownOptions).then(() => {
-      bot.sendLocation(msg.chat.id, result.location[0], result.location[1]).then(() => {
-        setTimeout(() => bot.sendMessage(msg.chat.id, "Что-нибудь еще?", keyboards.choiseOptions), 2000);
+    bot.sendMessage(msg.message.chat.id, `*${result.title}*\n\n🎯 Адрес: ${result.address}\n\nℹ️ ${result.description ? result.description : "Информация о данной точке отсутствует"}`, keyboards.markdownOptions).then(() => {
+      bot.sendLocation(msg.message.chat.id, result.location[0], result.location[1]).then(() => {
+        setTimeout(() => bot.sendMessage(msg.message.chat.id, "Если я понадоблюсь - пишите /start"), 3000);
       });
     });
   } else {
     bot.sendMessage(msg.chat.id, "*Oops!*\n\nЯ ничего не нашел, хотя очень старался. Возможно, что рядом с вами просто нет халявы (хотя мне кажется, что просто кто-то деплоит на сервер или настраивает базу данных).\n\nКак бы то ни было, попробуйте повторить поиск позже или свяжитесь с разработчиками.\n\n*E-mail:* development@mail.freebee.by", keyboards.markdownOptions);
   }
-});
+};
 
-bot.onText(/Wi-Fi/, (msg) => {
-  bot.sendMessage(msg.chat.id, msg.text + "?", keyboards.requestLocation);
-});
-
-bot.onText(/Туалеты/, (msg) => {
-  bot.sendMessage(msg.chat.id, msg.text + "?", keyboards.requestLocation);
+bot.on("callback_query", (callbackMessage) => {
+  bot.sendMessage(callbackMessage.message.chat.id, "Пожалуйста, отправьте местоположение точки, рядом с которой нужно поискать халяву.").then(() => {
+    bot.on("location", (locationMessage) => {
+      sendFreebee(callbackMessage, locationMessage.location);
+      callbackMessage = null;
+    });
+  });
 });
 
 module.exports = bot;
