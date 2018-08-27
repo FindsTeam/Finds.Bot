@@ -5,15 +5,15 @@ const Toilets = require("../models/toilets");
 
 const getProperModel = (text) => {
   switch (text) {
-    case types.wifi + "?": return Wifis;
-    case types.toilets + "?": return Toilets;
+    case types.wifi: return Wifis;
+    case types.toilets: return Toilets;
   }
 };
 
-module.exports.getNearestMarker = async (msg) => {
-  const Model = getProperModel(msg.reply_to_message.text);
-  const lat = parseFloat(msg.location.latitude);
-  const lng = parseFloat(msg.location.longitude);
+module.exports.getNearestMarker = async (type, location) => {
+  const Model = getProperModel(type);
+  const lat = parseFloat(location.latitude);
+  const lng = parseFloat(location.longitude);
   const nearestMarker = await Model.findOne().where("location").near({
     center: {
       type: "Point",
