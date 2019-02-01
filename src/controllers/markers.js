@@ -1,9 +1,20 @@
-const Markers = require("../models/markers");
+const types = require("../models/types");
 
-module.exports.getNearestMarker = async (msg) => {
-  const lat = parseFloat(msg.location.latitude);
-  const lng = parseFloat(msg.location.longitude);
-  const nearestMarker = await Markers.findOne().where("location").near({
+const Wifis = require("../models/wifis");
+const Toilets = require("../models/toilets");
+
+const getProperModel = (text) => {
+  switch (text) {
+    case types.wifi: return Wifis;
+    case types.toilets: return Toilets;
+  }
+};
+
+module.exports.getNearestMarker = async (type, location) => {
+  const Model = getProperModel(type);
+  const lat = parseFloat(location.latitude);
+  const lng = parseFloat(location.longitude);
+  const nearestMarker = await Model.findOne().where("location").near({
     center: {
       type: "Point",
         coordinates: [lat, lng]
