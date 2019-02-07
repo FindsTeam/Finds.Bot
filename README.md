@@ -11,7 +11,7 @@
   <img src='https://drive.google.com/uc?id=1albVAA6GrHQaG0EvN3a1WFCs9irSv5Lk' alt='Freebee logo' width="200" />
 </p>
 
-# Freebee Navigator
+# Freebee Bot
 
 It's a Telegram bot api, designed to search free facilities (simply put, *freebies*) around user.
 
