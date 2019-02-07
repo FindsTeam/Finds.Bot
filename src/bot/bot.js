@@ -8,43 +8,45 @@ const messages = require("./messages");
 const token = process.env.TELEGRAM_TOKEN;
 let bot;
 
-if(process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV === "production") {
   bot = new TelegramBot(token);
   bot.setWebHook(process.env.HEROKU_URL + bot.token);
-}
-else {
-  bot = new TelegramBot(token, { polling: true });
+} else {
+  bot = new TelegramBot(token, {
+    polling: true
+  });
 }
 
 bot.onText(/\/start/, (msg) => {
-  bot.sendMessage(msg.chat.id, messages.start, keyboards.choiseOptions);   
+  bot.sendMessage(msg.chat.id, messages.start, keyboards.choiseOptions);
 });
 
 bot.onText(/\/help/, (msg) => {
-  bot.sendMessage(msg.chat.id, messages.help, keyboards.markdownOptions);  
+  bot.sendMessage(msg.chat.id, messages.help, keyboards.markdownOptions);
 });
 
 bot.onText(/\/info/, (msg) => {
-  bot.sendMessage(msg.chat.id, messages.info, keyboards.markdownOptions);  
+  bot.sendMessage(msg.chat.id, messages.info, keyboards.markdownOptions);
 });
 
 bot.onText(/\/about/, (msg) => {
-  bot.sendMessage(msg.chat.id, messages.about, keyboards.markdownOptions);  
+  bot.sendMessage(msg.chat.id, messages.about, keyboards.markdownOptions);
 });
 
 const sendFreebee = async (msg, location) => {
   if (!msg) {
-    return ;
+    return;
   }
   const marker = await markersController.getNearestMarker(msg.data, location);
   if (marker) {
     bot.sendMessage(msg.message.chat.id, messages.result(marker), keyboards.markdownOptions).then(() => {
-      bot.sendLocation(msg.message.chat.id, marker.location[0], marker.location[1]).then(() => {
+      const coordinates = marker.location.coordinates;
+      bot.sendLocation(msg.message.chat.id, coordinates[0], coordinates[1]).then(() => {
         setTimeout(() => bot.sendMessage(msg.message.chat.id, messages.reminder), 3000);
       });
     });
   } else {
-    bot.sendMessage(msg.chat.id, messages.error, keyboards.markdownOptions);
+    bot.sendMessage(msg.message.chat.id, messages.error, keyboards.markdownOptions);
   }
 };
 

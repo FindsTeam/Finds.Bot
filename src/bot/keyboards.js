@@ -7,7 +7,13 @@ module.exports.markdownOptions = {
 module.exports.choiseOptions = {
   reply_markup: JSON.stringify({
     inline_keyboard: [
-      [{text: types.wifi, callback_data: types.wifi}, {text: types.toilets, callback_data: types.toilets}],
+      [{
+        text: types.wifi,
+        callback_data: types.wifi
+      }, {
+        text: types.toilets,
+        callback_data: types.toilets
+      }],
     ]
   })
 };
@@ -15,8 +21,16 @@ module.exports.choiseOptions = {
 module.exports.requestLocation = {
   reply_markup: JSON.stringify({
     inline_keyboard: [
-      [{text: "Указать свое местоположение", callback_data: 'location', callrequest_location: true}],
-      [{text: "Отменить", callback_data: 'cancel', request_location: false}],
+      [{
+        text: "Указать свое местоположение",
+        callback_data: "location",
+        callrequest_location: true
+      }],
+      [{
+        text: "Отменить",
+        callback_data: "cancel",
+        request_location: false
+      }],
     ],
     resize_keyboard: true,
     one_time_keyboard: true,
