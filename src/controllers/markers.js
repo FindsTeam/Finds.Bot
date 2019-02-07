@@ -5,8 +5,10 @@ const Toilets = require("../models/toilets");
 
 const getProperModel = (text) => {
   switch (text) {
-    case types.wifi: return Wifis;
-    case types.toilets: return Toilets;
+    case types.wifi:
+      return Wifis;
+    case types.toilets:
+      return Toilets;
   }
 };
 
@@ -17,7 +19,7 @@ module.exports.getNearestMarker = async (type, location) => {
   const nearestMarker = await Model.findOne().where("location").near({
     center: {
       type: "Point",
-        coordinates: [lat, lng]
+      coordinates: [lat, lng]
     },
     maxDistance: 10000
   });
