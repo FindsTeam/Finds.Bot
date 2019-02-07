@@ -1,6 +1,7 @@
 const TelegramBot = require("node-telegram-bot-api");
 
 const markersController = require("../controllers/markers");
+const routesController = require("../controllers/route");
 
 const keyboards = require("./keyboards");
 const messages = require("./messages");
@@ -39,9 +40,11 @@ const sendFreebee = async (msg, location) => {
   }
   const marker = await markersController.getNearestMarker(msg.data, location);
   if (marker) {
-    bot.sendMessage(msg.message.chat.id, messages.result(marker), keyboards.markdownOptions).then(() => {
-      const coordinates = marker.location.coordinates;
-      bot.sendLocation(msg.message.chat.id, coordinates[0], coordinates[1]).then(() => {
+    const start = [location.latitude, location.longitude];
+    const finish = marker.location.coordinates;
+    const summary = await routesController.requestRouteData(start, finish);
+    bot.sendMessage(msg.message.chat.id, messages.result(marker, summary), keyboards.markdownOptions).then(() => {
+      bot.sendLocation(msg.message.chat.id, finish[0], finish[1]).then(() => {
         setTimeout(() => bot.sendMessage(msg.message.chat.id, messages.reminder), 3000);
       });
     });

@@ -9,7 +9,7 @@ module.exports = {
   reminder: "Если я понадоблюсь - пишите /start",
   request: "Пожалуйста, отправьте местоположение точки, рядом с которой нужно поискать халяву.",
 
-  result: (marker) => {
-    return `*${marker.title}*\n\n🎯 Адрес: ${marker.address}\n\nℹ️ ${marker.description ? marker.description : "Информация о данной точке отсутствует"}`;
+  result: (marker, route) => {
+    return `🎯  *${marker.title}*\n\n📍  *Адрес:* ${marker.address}\n\n🚶‍♂️  *Расстояние:* ${route.distance} м.\n\n⏳  *Придешь через:* ${Math.round(route.time / 60)} мин.\n\n📜 ️ ${marker.description ? marker.description : "Информация о данной точке отсутствует"}`;
   }
 };
