@@ -109,6 +109,5 @@ Some advices that can save your time :bulb:
 
 ## Developed by
 
-* **Егор Пуйша** - [GitStearis](https://github.com/GitStearis) - Author, Full-stack Development;
-
-* **Артём Дадыченко** - [adadychenko](https://github.com/ArtemDadychenko) - Testing;
+* **Егор Пуйша** - [GitStearis](https://github.com/GitStearis);
+* **Артем Дадыченко** - [ArtemDadychenko](https://github.com/ArtemDadychenko);
