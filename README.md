@@ -110,4 +110,4 @@ Some advices that can save your time :bulb:
 ## Developed by
 
 * **Егор Пуйша** - [GitStearis](https://github.com/GitStearis);
-* **Артем Дадыченко** - [ArtemDadychenko](https://github.com/ArtemDadychenko);
+* **Артем Дадыченко** - [ArtemDadychenko](https://github.com/ArtemDadychenko).
