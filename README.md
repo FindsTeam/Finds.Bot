@@ -45,10 +45,14 @@ PORT = 3000
 NODE_ENV = 
 TELEGRAM_TOKEN = 
 MONGODB_CONNECTION = 
+HERE_ROUTE_API = 
+HERE_APP_ID = 
+HERE_APP_CODE = 
 ```
 
 * `TELEGRAM_TOKEN` - A token, provided by the BotFather. Read more [here](https://core.telegram.org/bots/api#making-requests);
 * `MONGODB_CONNECTION` - a MongoDB [connection string](https://docs.mongodb.com/manual/reference/connection-string/) with credentials;
+* `HERE_ ...` - Environmental variables for [HERE Routing API](https://developer.here.com/documentation/maps/topics/quick-start.html);
 
 To run server on localhost type  `npm start`  in root folder.
 
@@ -89,7 +93,8 @@ heroku open
 - [Node.js](https://github.com/nodejs/node) - JavaScript runtime for server;
 - [npm](https://github.com/npm/npm) - Package manager for JavaScript;
 - [Express.js](https://github.com/expressjs/express) - Framework for Node.js;
-- [Node.js Telegram Bot API](https://github.com/yagop/node-telegram-bot-api) - Node.js module to interact with official Telegram Bot API.
+- [Node.js Telegram Bot API](https://github.com/yagop/node-telegram-bot-api) - Node.js module to interact with official Telegram Bot API;
+- [HERE](https://developer.here.com/) - Geo-service used for route time & distance calculation.
 
 ### Deployment
 
