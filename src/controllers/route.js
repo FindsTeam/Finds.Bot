@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-const baseHereRoutingApi = `${process.env.REACT_APP_HERE_ROUTE_API}?app_id=${process.env.REACT_APP_HERE_APP_ID}&app_code=${process.env.REACT_APP_HERE_APP_CODE}`;
+const baseHereRoutingApi = `${process.env.HERE_ROUTE_API}?app_id=${process.env.HERE_APP_ID}&app_code=${process.env.HERE_APP_CODE}`;
 
 const mode = "fastest;pedestrian;traffic:disabled";
 

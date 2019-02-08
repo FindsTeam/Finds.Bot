@@ -1,6 +1,6 @@
 {
   "name": "freebee-telegram-bot",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A Telegram bot that helps people to find free opportunities of a specific type around their place",
   "main": "index.js",
   "scripts": {
