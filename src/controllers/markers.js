@@ -21,7 +21,7 @@ module.exports.getNearestMarker = async (type, location) => {
       type: "Point",
       coordinates: [lat, lng]
     },
-    maxDistance: 10000
+    maxDistance: 5000
   });
 
   if (nearestMarker) {

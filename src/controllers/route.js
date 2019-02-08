@@ -2,7 +2,7 @@ const axios = require("axios");
 
 const baseHereRoutingApi = `${process.env.REACT_APP_HERE_ROUTE_API}?app_id=${process.env.REACT_APP_HERE_APP_ID}&app_code=${process.env.REACT_APP_HERE_APP_CODE}`;
 
-const mode = "balanced;pedestrian;traffic:disabled";
+const mode = "fastest;pedestrian;traffic:disabled";
 
 const buildPointString = (coordinates) => {
   return `geo!${coordinates[0]},${coordinates[1]}`;
