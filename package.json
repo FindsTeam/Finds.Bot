@@ -1,6 +1,6 @@
 {
   "name": "freebee-telegram-bot",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A Telegram bot that helps people to find free opportunities of a specific type around their place",
   "main": "index.js",
   "scripts": {
@@ -10,6 +10,7 @@
   "author": "George Puisha (Freebee Team)",
   "license": "MIT",
   "dependencies": {
+    "axios": "0.18.0",
     "body-parser": "1.18.3",
     "dotenv": "6.0.0",
     "express": "4.16.3",
