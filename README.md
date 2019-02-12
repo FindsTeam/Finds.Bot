@@ -1,34 +1,34 @@
 <p align="center"> 
-  <a href="https://codeclimate.com/github/FreebeeTeam/freebee-telegram-bot/maintainability">
+  <a href="https://codeclimate.com/github/FindsTeam/finds-telegram-bot/maintainability">
     <img src="https://api.codeclimate.com/v1/badges/d053b7eee6887a11046d/maintainability" />
   </a>
-  <a class="badge-align" href="https://www.codacy.com/app/GitStearis/freebee-telegram-bot?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=FreebeeTeam/freebee-telegram-bot&amp;utm_campaign=Badge_Grade">
+  <a class="badge-align" href="https://www.codacy.com/app/GitStearis/finds-telegram-bot?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=FindsTeam/finds-telegram-bot&amp;utm_campaign=Badge_Grade">
     <img src="https://api.codacy.com/project/badge/Grade/bfc11c270b71494181491d35fba0306a"/>
   </a>
 </p>
 
 <p align="center"> 
-  <img src='https://drive.google.com/uc?id=1albVAA6GrHQaG0EvN3a1WFCs9irSv5Lk' alt='Freebee logo' width="200" />
+  <img src='https://drive.google.com/uc?id=1albVAA6GrHQaG0EvN3a1WFCs9irSv5Lk' alt='Finds logo' width="200" />
 </p>
 
-# Freebee Bot
+# Finds Bot
 
-It's a Telegram bot api, designed to search free facilities (simply put, *freebies*) around user.
+It's a Telegram bot api, designed to search for freebies around user.
 
-* [Small VK public page](https://vk.com/freebeeapp);
-* [Freebee at Social Weekend Hackathon](http://telegra.ph/Social-Weekend-Hackathon--kak-ehto-bylo-02-26).
+* [Small VK public page](https://vk.com/findsapp);
+* [Finds at Social Weekend Hackathon](http://telegra.ph/Social-Weekend-Hackathon--kak-ehto-bylo-02-26).
 
 ## Getting started
 
 Clone project to your computer.
 
 ```
-$ git clone https://github.com/FreebeeTeam/freebee-telegram-bot.git
+$ git clone https://github.com/FindsTeam/Finds.Bot.git
 ```
 
 ### Prerequisites
 
-To start with Freebee API, you should have [Node](https://nodejs.org/en/download/package-manager/) installed.
+To start with Finds API, you should have [Node](https://nodejs.org/en/download/package-manager/) installed.
 
 ### Installing
 
@@ -38,7 +38,7 @@ Install all dependencies.
 $ npm install
 ```
 
-To launch Freebee API you should create `.env` file in a root directory. File should contain:
+To launch Finds API you should create `.env` file in a root directory. File should contain:
 
 ```
 PORT = 3000
@@ -114,4 +114,4 @@ Some advices that can save your time :bulb:
 
 ## Developed by
 
-* **Егор Пуйша** - [GitStearis](https://github.com/GitStearis) - Author, Full-stack Development;
+* **Егор Пуйша** - [GitStearis](https://github.com/GitStearis)

@@ -34,7 +34,7 @@ bot.onText(/\/about/, (msg) => {
   bot.sendMessage(msg.chat.id, messages.about, keyboards.markdownOptions);
 });
 
-const sendFreebee = async (msg, location) => {
+const sendFinds = async (msg, location) => {
   if (!msg) {
     return;
   }
@@ -56,7 +56,7 @@ const sendFreebee = async (msg, location) => {
 bot.on("callback_query", (callbackMessage) => {
   bot.sendMessage(callbackMessage.message.chat.id, messages.request).then(() => {
     bot.on("location", (locationMessage) => {
-      sendFreebee(callbackMessage, locationMessage.location);
+      sendFinds(callbackMessage, locationMessage.location);
       callbackMessage = null;
     });
   });
