@@ -10,10 +10,15 @@ module.exports.choiseOptions = {
       [{
         text: types.wifi,
         callback_data: types.wifi
-      }, {
+      }],
+      [{
         text: types.toilets,
         callback_data: types.toilets
       }],
+      [{
+        text: types.sockets,
+        callback_data: types.sockets
+      }]
     ]
   })
 };

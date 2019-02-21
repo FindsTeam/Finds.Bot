@@ -2,6 +2,7 @@ const types = require("../models/types");
 
 const Wifis = require("../models/wifis");
 const Toilets = require("../models/toilets");
+const Sockets = require("../models/sockets");
 
 const getProperModel = (text) => {
   switch (text) {
@@ -9,6 +10,8 @@ const getProperModel = (text) => {
       return Wifis;
     case types.toilets:
       return Toilets;
+    case types.sockets:
+      return Sockets;
   }
 };
 

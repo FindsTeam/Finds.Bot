@@ -1,4 +1,5 @@
 module.exports = {
   wifi: "📡 Wi-Fi",
-  toilets: "🚽 Туалеты"
+  toilets: "🚽 Туалеты",
+  sockets: "🔌 Розетки"
 };
