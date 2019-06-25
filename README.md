@@ -114,4 +114,4 @@ Some advices that can save your time :bulb:
 
 ## Developed by
 
-* **Егор Пуйша** - [GitStearis](https://github.com/GitStearis)
+* **Егор Пуйша** - [GitStearis](https://github.com/GitStearis).
