@@ -46,7 +46,7 @@ const socket = new mongoose.Schema({
 });
 
 socket.index({
-  loc: "2dsphere"
+  location: "2dsphere"
 });
 
 module.exports = mongoose.model("sockets", socket);

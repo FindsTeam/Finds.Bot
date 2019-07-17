@@ -50,6 +50,7 @@ const sendFinds = async (msg, location) => {
     });
   } else {
     bot.sendMessage(msg.message.chat.id, messages.error, keyboards.markdownOptions);
+    setTimeout(() => bot.sendMessage(msg.message.chat.id, messages.reminder), 3000);
   }
 };
 

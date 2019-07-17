@@ -9,15 +9,19 @@ module.exports.choiseOptions = {
     inline_keyboard: [
       [{
         text: types.wifi,
-        callback_data: types.wifi
+        callback_data: types.wifi,
       }],
       [{
         text: types.toilets,
-        callback_data: types.toilets
+        callback_data: types.toilets,
       }],
       [{
         text: types.sockets,
-        callback_data: types.sockets
+        callback_data: types.sockets,
+      }],
+      [{
+        text: types.water,
+        callback_data: types.water,
       }]
     ]
   })
