@@ -3,50 +3,42 @@ const pointSchema = require("./point");
 
 mongoose.Promise = Promise;
 
-const wifi = new mongoose.Schema({
+const water = new mongoose.Schema({
   title: {
     type: String,
-    required: true,
+    required: false,
     index: {
-      unique: false
-    }
+      unique: false,
+    },
   },
   location: {
     type: pointSchema,
     required: true,
-    index: {
-      type: "2dsphere",
-      sparse: true
-    }
   },
   description: {
     type: String,
-    required: false
+    required: false,
   },
   creationDate: {
     type: Date,
     default: Date.now,
-    required: true
+    required: true,
   },
   author: {
     type: String,
-    required: false
+    required: false,
   },
   address: {
     type: String,
-    required: true
-  },
-  password: {
-    type: String,
-    required: false
+    required: true,
   },
 }, {
-  collection: "wifi",
+  collection: "water",
   versionKey: false
 });
 
-wifi.index({
-  loc: "2dsphere"
+water.index({
+  location: "2dsphere",
 });
 
-module.exports = mongoose.model("wifi", wifi);
+module.exports = mongoose.model("water", water);

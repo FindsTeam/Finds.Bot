@@ -25,6 +25,7 @@ node_modules
 **/bin
 **/public
 .vscode
+.idea
 
 
 # Created by https://www.gitignore.io/api/reactnative,visualstudiocode

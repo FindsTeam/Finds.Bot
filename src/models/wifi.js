@@ -3,7 +3,7 @@ const pointSchema = require("./point");
 
 mongoose.Promise = Promise;
 
-const toilet = new mongoose.Schema({
+const wifi = new mongoose.Schema({
   title: {
     type: String,
     required: true,
@@ -36,13 +36,17 @@ const toilet = new mongoose.Schema({
     type: String,
     required: true
   },
+  password: {
+    type: String,
+    required: false
+  },
 }, {
-  collection: "toilets",
+  collection: "wifi",
   versionKey: false
 });
 
-toilet.index({
+wifi.index({
   location: "2dsphere"
 });
 
-module.exports = mongoose.model("toilets", toilet);
+module.exports = mongoose.model("wifi", wifi);
